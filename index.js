@@ -1,3 +1,9 @@
 #!/usr/bin/env node
+const Weather = require('./lib/Weather');
+const weather = new Weather();
 
-console.log("I am working");
+weather.getCurrentWeatherByCity("Reggio nell'Emilia");
+
+weather.getCurrentWeatherByCoordinates(139, 35);
+
+console.log('I am checking weather forecasts');
