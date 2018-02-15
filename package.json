@@ -23,6 +23,7 @@
     "node-fetch": "^2.0.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "commander": "^2.14.1"
   }
 }
