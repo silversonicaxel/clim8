@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-/*eslint-env node*/
-
 const Weather = require("./lib/Weather");
 const weather = new Weather();
 
