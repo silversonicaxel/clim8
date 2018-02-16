@@ -1,5 +1,5 @@
 # clim8
-CLI Weather forecast service based on the API of https://openweathermap.org/
+clim8 is a CLI Weather forecast service based on the API of https://openweathermap.org/
 
 ## Usage
 ```bash

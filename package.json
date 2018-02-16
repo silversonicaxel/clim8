@@ -1,11 +1,13 @@
 {
   "name": "clim8",
   "version": "1.2.0",
-  "description": "",
+  "description": "clim8 is a CLI Weather forecast service based on the API of https://openweathermap.org/",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel index.js --out-file app.js"
+  },
+  "bin": {
+    "clim8": "app.js"
   },
   "license": "MIT",
   "author": "silversonicaxel",
