@@ -17,7 +17,6 @@ const EXIT_ERROR = 1;
         .option("-L, --coordinates <latitude,longitude>", "Provide latitude and longitude", items => items.split(","))
         .parse(process.argv);
 
-
     try {
         if (clim8Program.city) {
             weather.getCurrentWeatherByCity(clim8Program.city);
@@ -30,6 +29,8 @@ const EXIT_ERROR = 1;
 
             weather.getCurrentWeatherByCoordinates(clim8Program.coordinates[0], clim8Program.coordinates[1]);
         }
+
+        throw new Error("Confused? Do you need some help? clim8 --help");
     }
     catch (error) {
         console.log(error.message);
