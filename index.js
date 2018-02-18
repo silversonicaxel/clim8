@@ -22,7 +22,7 @@ const EXIT_ERROR = 1;
             weather.getCurrentWeatherByCity(clim8Program.city);
         }
 
-        if (clim8Program.coordinates) {
+        else if (clim8Program.coordinates) {
             if (clim8Program.coordinates.length !== 2) {
                 throw new Error("Coordinates must be 2, latitude and longitude");
             }
@@ -30,7 +30,9 @@ const EXIT_ERROR = 1;
             weather.getCurrentWeatherByCoordinates(clim8Program.coordinates[0], clim8Program.coordinates[1]);
         }
 
-        throw new Error("Confused? Do you need some help? clim8 --help");
+        else {
+            throw new Error("Confused? Do you need some help? clim8 --help");
+        }
     }
     catch (error) {
         console.log(error.message);
