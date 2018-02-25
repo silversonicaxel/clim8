@@ -13,8 +13,9 @@ const EXIT_ERROR = 1;
     clim8Program
         .version(clim8Pkg.version)
         .usage("[options] <option>")
-        .option("-C, --city <city>", "Provide city")
-        .option("-L, --coordinates <latitude,longitude>", "Provide latitude and longitude", items => items.split(","))
+        .option("-C, --city [city]", "provide city")
+        .option("-S, --citystate [city,state]", "provide city and state", items => items.split(","))
+        .option("-L, --coordinates [latitude,longitude]", "provide latitude and longitude", items => items.split(","))
         .parse(process.argv);
 
     try {
@@ -22,9 +23,17 @@ const EXIT_ERROR = 1;
             weather.getCurrentWeatherByCity(clim8Program.city);
         }
 
+        else if (clim8Program.citystate) {
+            if (clim8Program.citystate.length !== 2) {
+                throw new Error("City and state are mandatory, example: London,Uk");
+            }
+
+            weather.getCurrentWeatherByCityAndState(clim8Program.citystate[0], clim8Program.citystate[1]);
+        }
+
         else if (clim8Program.coordinates) {
             if (clim8Program.coordinates.length !== 2) {
-                throw new Error("Coordinates must be 2, latitude and longitude");
+                throw new Error("Latitude and Longitude are mandatory, example: 44.4949,11.3426");
             }
 
             weather.getCurrentWeatherByCoordinates(clim8Program.coordinates[0], clim8Program.coordinates[1]);

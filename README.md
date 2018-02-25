@@ -31,6 +31,8 @@ $ node index.js -C "Reggio nell'Emilia"
 
 $ node index.js -C Amsterdam
 
+$ node index.js -S London,Uk
+
 $ node index.js -L 54,12
 
 ```
@@ -42,6 +44,8 @@ $ node index.js -L 54,12
 $ clim8 -C "Reggio nell'Emilia"
 
 $ clim8 -C Amsterdam
+
+$ clim8 -S London,Uk
 
 $ clim8 -L 54,12
 
@@ -59,8 +63,9 @@ Usage: index [options] <option>
   Options:
 
     -V, --version                           output the version number
-    -C, --city <city>                       Provide city
-    -L, --coordinates <latitude,longitude>  Provide latitude and longitude
+    -C, --city [city]                       provide city
+    -S, --citystate [city,state]            provide city and state
+    -L, --coordinates [latitude,longitude]  provide latitude and longitude
     -h, --help                              output usage information
 
 ```
