@@ -55,7 +55,7 @@ $ clim8 -L 54,12
 ## How-to
 ```bash
 
-$ node index.js --help
+$ clim8 --help
 
 Usage: index [options] <option>
 
