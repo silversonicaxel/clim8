@@ -7,4 +7,3 @@ node_modules/
 # extra
 .idea/
 *compiled.js*
-app.js
