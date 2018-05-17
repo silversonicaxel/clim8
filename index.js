@@ -7,7 +7,6 @@ const weather = new Weather();
 
 const EXIT_ERROR = 1;
 
-
 (async () => {
     // clim8 program
     clim8Program
@@ -19,32 +18,30 @@ const EXIT_ERROR = 1;
         .parse(process.argv);
 
     try {
-        if (clim8Program.city) {
-            weather.getCurrentWeatherByCity(clim8Program.city);
-        }
+        if (clim8Program.city) return weather.getCurrentWeatherByCity(clim8Program.city);
 
-        else if (clim8Program.citystate) {
+        if (clim8Program.citystate) {
             if (clim8Program.citystate.length !== 2) {
-                throw new Error("City and state are mandatory, example: London,Uk");
+                console.log("City and state are mandatory, example: London,Uk");
+                return process.exit(EXIT_ERROR);
             }
 
-            weather.getCurrentWeatherByCityAndState(clim8Program.citystate[0], clim8Program.citystate[1]);
+            return weather.getCurrentWeatherByCityAndState(clim8Program.citystate[0], clim8Program.citystate[1]);
         }
 
-        else if (clim8Program.coordinates) {
+        if (clim8Program.coordinates) {
             if (clim8Program.coordinates.length !== 2) {
-                throw new Error("Latitude and Longitude are mandatory, example: 44.4949,11.3426");
+                console.log("Latitude and Longitude are mandatory, example: 44.4949,11.3426");
+                return process.exit(EXIT_ERROR);
             }
 
-            weather.getCurrentWeatherByCoordinates(clim8Program.coordinates[0], clim8Program.coordinates[1]);
+            return weather.getCurrentWeatherByCoordinates(clim8Program.coordinates[0], clim8Program.coordinates[1]);
         }
 
-        else {
-            throw new Error("Confused? Do you need some help? clim8 --help");
-        }
+        console.log("Confused? Do you need some help? clim8 --help")
     }
     catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         process.exit(EXIT_ERROR);
     }
 })();
