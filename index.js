@@ -44,7 +44,7 @@ const EXIT_ERROR = 1;
         }
     }
     catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         process.exit(EXIT_ERROR);
     }
 })();
