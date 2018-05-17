@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  clim8:
+    image: node:10.1.0-alpine
+    working_dir: /opt/app
+    volumes:
+      - ./:/opt/app
