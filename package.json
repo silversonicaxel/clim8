@@ -4,7 +4,8 @@
   "description": "clim8 is a CLI Weather forecast service based on the API of https://openweathermap.org/",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.js --out-file app.js"
+    "build": "babel index.js --out-file app.js",
+    "lint": "node node_modules/eslint/bin/eslint.js **/*.js"
   },
   "bin": {
     "clim8": "app.js"
