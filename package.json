@@ -1,6 +1,6 @@
 {
   "name": "clim8",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "description": "clim8 is a CLI Weather forecast service based on the API of https://openweathermap.org/",
   "main": "index.js",
   "scripts": {
