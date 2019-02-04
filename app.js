@@ -34,70 +34,63 @@ var EXIT_ERROR = 1;
                     _context.prev = 1;
 
                     if (!clim8Program.city) {
-                        _context.next = 6;
+                        _context.next = 4;
                         break;
                     }
 
-                    weather.getCurrentWeatherByCity(clim8Program.city);
-                    _context.next = 19;
-                    break;
+                    return _context.abrupt("return", weather.getCurrentWeatherByCity(clim8Program.city));
 
-                case 6:
+                case 4:
                     if (!clim8Program.citystate) {
-                        _context.next = 12;
-                        break;
-                    }
-
-                    if (!(clim8Program.citystate.length !== 2)) {
                         _context.next = 9;
                         break;
                     }
 
-                    throw new Error("City and state are mandatory, example: London,Uk");
+                    if (!(clim8Program.citystate.length !== 2)) {
+                        _context.next = 8;
+                        break;
+                    }
+
+                    console.log("City and state are mandatory, example: London,Uk");
+                    return _context.abrupt("return", process.exit(EXIT_ERROR));
+
+                case 8:
+                    return _context.abrupt("return", weather.getCurrentWeatherByCityAndState(clim8Program.citystate[0], clim8Program.citystate[1]));
 
                 case 9:
-
-                    weather.getCurrentWeatherByCityAndState(clim8Program.citystate[0], clim8Program.citystate[1]);
-                    _context.next = 19;
-                    break;
-
-                case 12:
                     if (!clim8Program.coordinates) {
-                        _context.next = 18;
+                        _context.next = 14;
                         break;
                     }
 
                     if (!(clim8Program.coordinates.length !== 2)) {
-                        _context.next = 15;
+                        _context.next = 13;
                         break;
                     }
 
-                    throw new Error("Latitude and Longitude are mandatory, example: 44.4949,11.3426");
+                    console.log("Latitude and Longitude are mandatory, example: 44.4949,11.3426");
+                    return _context.abrupt("return", process.exit(EXIT_ERROR));
 
-                case 15:
+                case 13:
+                    return _context.abrupt("return", weather.getCurrentWeatherByCoordinates(clim8Program.coordinates[0], clim8Program.coordinates[1]));
 
-                    weather.getCurrentWeatherByCoordinates(clim8Program.coordinates[0], clim8Program.coordinates[1]);
-                    _context.next = 19;
+                case 14:
+
+                    console.log("Confused? Do you need some help? clim8 --help");
+                    _context.next = 21;
                     break;
 
-                case 18:
-                    throw new Error("Confused? Do you need some help? clim8 --help");
-
-                case 19:
-                    _context.next = 25;
-                    break;
-
-                case 21:
-                    _context.prev = 21;
+                case 17:
+                    _context.prev = 17;
                     _context.t0 = _context["catch"](1);
 
                     console.error(_context.t0.message);
                     process.exit(EXIT_ERROR);
 
-                case 25:
+                case 21:
                 case "end":
                     return _context.stop();
             }
         }
-    }, _callee, undefined, [[1, 21]]);
+    }, _callee, undefined, [[1, 17]]);
 }))();
