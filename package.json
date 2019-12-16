@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
+    "chalk": "^3.0.0",
     "commander": "^2.20.0",
     "node-fetch": "^2.6.0"
   }
